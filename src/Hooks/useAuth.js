@@ -24,4 +24,10 @@ export const useAuth = () =>{
 //Provider hook que creara el el objeto auth y manejara el state
 export const AuthProvider = ({ children }) => {
 	const [user, setUser] = useState(null);
+	const [authenticated, setAuthenticated] = useState(true)
+
+	const sendSignInLinkToEmail = (email) =>{
+		firebase.auth().sendSignInLinkToEmail(email, {})
+	}
+
 }
