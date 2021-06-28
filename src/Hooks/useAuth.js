@@ -27,7 +27,22 @@ export const AuthProvider = ({ children }) => {
 	const [authenticated, setAuthenticated] = useState(true)
 
 	const sendSignInLinkToEmail = (email) =>{
-		firebase.auth().sendSignInLinkToEmail(email, {})
+		firebase.auth().sendSignInLinkToEmail(email, {
+			url: 'http://localhost::8080/confirm',
+			handleCodeInApp: true,
+		}).then(() => {
+			return true
+		})
+	}
+
+	const signInWithEmailLink = (email, code) =>{
+		return firebase
+			.auth()
+			.signInWithEmailLink(email, code)
+			.then(result => {
+				setUser(result.user)
+				return true
+		})
 	}
 
 }
