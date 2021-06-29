@@ -32,6 +32,10 @@ export const AuthProvider = ({ children }) => {
 			handleCodeInApp: true,
 		}).then(() => {
 			return true
+		}) .catch((error) => {
+			const errorCode = error.code;
+			const errorMessage = error.message;
+			laert(`Error: ${errorCode}\n${errorMessage}`)
 		})
 	}
 
@@ -44,5 +48,26 @@ export const AuthProvider = ({ children }) => {
 				return true
 		})
 	}
+
+	const logout = () => {
+		return firebase.auth().signOut().then(() => {
+			setUser(null)
+		})
+	}
+
+	//Suscribe al usuario al montar
+	//Debido a que esto setea el setState en el callback esto causara
+	//que cualquier componente que utilize este hook se re renderize
+	//con el objeto mas actualizado de auth
+
+	useEffect(() => {
+		const unsubcribe = firebase.auth().onAuthStateChanged(user => {
+			setUser(user)
+			setAuthenticated(false)
+			if(user){
+				//conditional
+			} else {}
+		})
+	}, [])
 
 }
