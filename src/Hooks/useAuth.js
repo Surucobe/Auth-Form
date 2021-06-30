@@ -64,10 +64,24 @@ export const AuthProvider = ({ children }) => {
 		const unsubcribe = firebase.auth().onAuthStateChanged(user => {
 			setUser(user)
 			setAuthenticated(false)
-			if(user){
-				//conditional
-			} else {}
+			
+			//call the function in the clenup 
+			return () => unsubcribe()
 		})
 	}, [])
+
+	const values = {
+		user,
+		authenticated,
+		sendSignInLinkToEmail,
+		signInWithEmailLink,
+		logout
+	}
+
+	return(
+		<AuthContext.Provider value={values} >
+			{ !authenticated && children }
+		</AuthContext.Provider>
+		)
 
 }
