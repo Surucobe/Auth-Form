@@ -3,6 +3,8 @@ import { Grid } from '@chakra-ui/react';
 
 import { ColorModeSwitcher } from './ColorModeSwitcher';
 
+import Nav from './Nav'
+
 const Layout = ({ children }) => {
 	return(
 		<Grid
@@ -12,6 +14,7 @@ const Layout = ({ children }) => {
 			p={3}
 		>
 			<ColorModeSwitcher position='absolute' top={3} right={3} />
+				<Nav />
 				{children}
 		</Grid>
 		)
