@@ -3,14 +3,15 @@ import React, { StrictMode } from 'react';
 import ReactDOM from 'react-dom';
 
 import App from './App';
-import reportWebVitals from './reportWebVitals';
-import * as serviceWorker from './serviceWorker';
+import { AuthProvider } from './Hooks/useAuth'
 
 ReactDOM.render(
   <StrictMode>
     <ColorModeScript />
     <ChakraProvider theme={theme} >
-    	<App />
+    	<AuthProvider>
+    		<App />
+    	</AuthProvider>
     </ChakraProvider>
   </StrictMode>,
   document.getElementById('root')
