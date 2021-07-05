@@ -32,10 +32,6 @@ export const AuthProvider = ({ children }) => {
 			handleCodeInApp: true,
 		}).then(() => {
 			return true
-		}).catch((error) => {
-			const errorCode = error.code;
-			const errorMessage = error.message;
-			alert(`Error: ${errorCode}\n${errorMessage}`)
 		})
 	}
 
