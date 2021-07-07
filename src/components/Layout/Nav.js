@@ -1,8 +1,8 @@
 import React from 'react';
-import {GridItem, Box, Flex, Text} from '@chakra-ui/react';
-import {Link} from 'react-router-dom';
+import { GridItem, Box, Flex, Text } from '@chakra-ui/react';
+import { Link } from 'react-router-dom';
 
-import {useAuth} from '../../Hooks/useAuth'
+import { useAuth } from '../../Hooks/useAuth';
 
 const Nav = () => {
 	const{ user, logout } = useAuth();
@@ -27,7 +27,7 @@ const Nav = () => {
 				{!user && (
 					<Link to='/'>
 						<Text fontSize='md' mr={8} >
-							Dashboard
+							Login
 						</Text>
 					</Link>
 					)}
