@@ -23,7 +23,19 @@ const LoginForm = () => {
 	}
 
 	return(
-		<GridItem></GridItem>
+		<GridItem
+			colStart={[1, null, null, 2, null, null]}
+			colSpan={[3, null, null, 1, null, null]}
+			p={6}
+		>
+			<Heading as="h1" mb={6}>Login</Heading>
+			<form onSubmit={handleSubmit(onSubmit)} >
+				<FormControl>
+					<FormLabel htmlFor="email">Email</FormLabel>
+					<Input name="email" placeholder="Email" ref={register()} />
+				</FormControl>
+			</form>
+		</GridItem>
 		)
 }
 
