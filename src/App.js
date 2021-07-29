@@ -17,10 +17,10 @@ const App = () => {
     			<PrivateRoute exact path='/'>
     				<Dashboard />
     			</PrivateRoute>
-    			<Route path='/'>
+    			<Route path='/login'>
     				<LoginForm />
     			</Route>
-    			<Route path='/'>
+    			<Route path='/confirm'>
     				<ConfirmForm />
     			</Route>
     			<Route component={NotFound} />

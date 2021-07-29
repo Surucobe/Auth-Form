@@ -1,5 +1,5 @@
 import React from 'react';
-import { Heading, GridItem, Text } from '@chakra/ui-react';
+import { Heading, GridItem, Text } from '@chakra-ui/react';
 
 import { useAuth } from '../../Hooks/useAuth';
 

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Heading, GridItem} from '@chakra/ui-react';
+import { Heading, GridItem } from '@chakra-ui/react';
 
 const NotFound = () => {
 	return(

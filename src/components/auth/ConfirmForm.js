@@ -1,5 +1,5 @@
 import React from 'react';
-import { useForm } from 'react-form-hook';
+import { useForm } from 'react-hook-form';
 import {
 	Heading, GridItem, Alert, AlertIcon, FormLabel, FormControl, Input, Button
 } from '@chakra-ui/react';
@@ -7,10 +7,10 @@ import { useHistory, useLocation } from 'react-router-dom';
 
 import { useAuth } from '../../Hooks/useAuth';
 
-const ConfirmForm = ( signInWithEmailLink ) => {
+const ConfirmForm = () => {
 	const { handleSubmit, register, errors, setError, formState } = useForm();
 
-	const { sendSignInLinkToEmail } = useAuth();
+	const { signInWithEmailLink } = useAuth();
 
 	const history = useHistory();
 	const location = useLocation();
@@ -40,7 +40,7 @@ const ConfirmForm = ( signInWithEmailLink ) => {
 			{errors.email && (
 				<Alert status='error' variant='subtle' mt={6} mb={6} >
 					<AlertIcon />
-					{error.email.message}
+					{errors.email.message}
 				</Alert>
 				)}
 			<form onSubmit={handleSubmit(onSubmit)} >

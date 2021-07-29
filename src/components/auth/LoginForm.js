@@ -1,5 +1,5 @@
 import React from 'react';
-import { useForm } from 'react-form-hook';
+import { useForm } from 'react-hook-form';
 import {
 	Heading, GridItem, Alert, AlertIcon, FormLabel, FormControl, Input, Button
 } from '@chakra-ui/react';
@@ -7,7 +7,7 @@ import {
 import { useAuth } from '../../Hooks/useAuth';
 
 const LoginForm = () => {
-	const { handleSubmit, register, errors, setError, formState } = useForm();
+	const { handleSubmit, register, setError, formState, formState: { errors } } = useForm();
 
 	const { sendSignInLinkToEmail } = useAuth();
 
@@ -33,10 +33,10 @@ const LoginForm = () => {
 			{errors.email && (
 				<Alert status='error' variant='subtle' mt={6} mb={6} >
 					<AlertIcon />
-					{error.email.message}
+					{errors.email.message}
 				</Alert>
 				)}
-			{submit.isSubmitSuccessful && (
+			{formState.isSubmitSuccessful && (
 				<Alert status='success' variant='subtle' mt={6} mb={6} >
 					<AlertIcon />
 					Check your email to complete your login!
