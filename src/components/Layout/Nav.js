@@ -26,7 +26,7 @@ const Nav = () => {
 					)}
 				{!user && (
 					<Link to='/'>
-						<Text fontSize='md' mr={8} >
+						<Text fontSize='lg' mr={8} >
 							Login
 						</Text>
 					</Link>

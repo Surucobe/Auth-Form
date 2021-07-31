@@ -8,7 +8,7 @@ import { useHistory, useLocation } from 'react-router-dom';
 import { useAuth } from '../../Hooks/useAuth';
 
 const ConfirmForm = () => {
-	const { handleSubmit, register, errors, setError, formState } = useForm();
+	const { handleSubmit, register, setError, formState, formState: { errors } } = useForm();
 
 	const { signInWithEmailLink } = useAuth();
 
@@ -46,7 +46,7 @@ const ConfirmForm = () => {
 			<form onSubmit={handleSubmit(onSubmit)} >
 				<FormControl>
 					<FormLabel htmlFor="email">Email</FormLabel>
-					<Input name="email" placeholder="Email" ref={register()} />
+					<Input name="email" placeholder="Email" {...register('email')} />
 					<Button 
 						mt={6} colorScheme="teal" type="submit"
 						isLoading={formState.isSubmitting} 

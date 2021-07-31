@@ -28,7 +28,7 @@ export const AuthProvider = ({ children }) => {
 
 	const sendSignInLinkToEmail = (email) =>{
 		firebase.auth().sendSignInLinkToEmail(email, {
-			url: 'http://localhost::3000/confirm',
+			url: 'http://localhost:3000/confirm',
 			handleCodeInApp: true,
 		}).then(() => {
 			return true

@@ -46,7 +46,7 @@ const LoginForm = () => {
 			<form onSubmit={handleSubmit(onSubmit)} >
 				<FormControl>
 					<FormLabel htmlFor="email">Email</FormLabel>
-					<Input name="email" placeholder="Email" ref={register()} />
+					<Input name="email" placeholder="Email" {...register('email')} />
 					<Button 
 						mt={6} colorScheme="teal" type="submit"
 						isLoading={formState.isSubmitting} 
