@@ -12,6 +12,7 @@ const LoginForm = () => {
 	const { sendSignInLinkToEmail } = useAuth();
 
 	const onSubmit = async(data) =>{
+		console.log(data)
 		try{
 			await sendSignInLinkToEmail(data.email);
 		} catch (error) {
